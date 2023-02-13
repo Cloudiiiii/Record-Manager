@@ -1,0 +1,71 @@
+﻿@model VendorViewModel
+
+@{
+
+    string baseCssClass = "";
+    string errorClass = "input-error";
+}
+
+<div class="text-danger">@ViewBag.ErrorMessage</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.Name">Name:</label>
+    <span asp-validation-for="ActiveVendor.Name" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.Name" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.Address1">Address1:</label>
+    <span asp-validation-for="ActiveVendor.Address1" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.Address1" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.Address2">Address2:</label>
+    <span asp-validation-for="ActiveVendor.Address2" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.Address2" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.City">City:</label>
+    <span asp-validation-for="ActiveVendor.City" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.City" class="form-control" />
+</div>
+
+<div class="form-group">
+    <span asp-validation-for="ActiveVendor.ProvinceOrState" class="text-danger"></span>
+    <label asp-for="ActiveVendor.ProvinceOrState">Province/State:</label>
+    <span asp-validation-for="ActiveVendor.ProvinceOrState" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.ProvinceOrState" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.ZipOrPostalCode">Zip/PostalCode:</label>
+    <span asp-validation-for="ActiveVendor.ZipOrPostalCode" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.ZipOrPostalCode" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.VendorPhone">Phone:</label>
+    <span asp-validation-for="ActiveVendor.VendorPhone" class="text-danger"></span>
+    <span class="text-danger">@ViewBag.Message</span>
+    <input type="text" asp-for="ActiveVendor.VendorPhone" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.VendorContactFirstName">Contact first name:</label>
+    <span asp-validation-for="ActiveVendor.VendorContactFirstName" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.VendorContactFirstName" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.VendorContactLastName">Contact last name:</label>
+    <span asp-validation-for="ActiveVendor.VendorContactLastName" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.VendorContactLastName" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="ActiveVendor.VendorContactEmail">Contact email:</label>
+    <span asp-validation-for="ActiveVendor.VendorContactEmail" class="text-danger"></span>
+    <input type="text" asp-for="ActiveVendor.VendorContactEmail" class="form-control" />
+</div>

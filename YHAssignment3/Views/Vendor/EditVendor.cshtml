@@ -1,0 +1,15 @@
+﻿@model VendorViewModel
+
+@{
+    ViewData["Title"] = "Edit Vendor";
+}
+
+<h1>Edit a Vendor</h1>
+
+<form asp-controller="Vendor" asp-action="ProcessEditRequest" asp-route-lowerBound="@Model.lastLowerBound" asp-route-uppperBound="@Model.lastUpperBound" method="post" enctype="application/x-www-form-urlencoded">
+    <partial name="_AddEditPartial" model="@Model" />
+    <input type="hidden" asp-for="ActiveVendor.VendorId" />
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a href="javascript:history.go(-1)" class="btn btn-primary">Cancel</a>
+</form>

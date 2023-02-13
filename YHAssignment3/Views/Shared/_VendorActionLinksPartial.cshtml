@@ -1,0 +1,7 @@
+﻿@model Vendor
+
+<a asp-controller="Vendor" asp-action="GetInvoices" asp-route-vendorId="@Model.VendorId" asp-route-invoiceId="1">Invoices</a>
+<span class="mx-1">|</span>
+<a asp-controller="Vendor" asp-action="GetEditRequest" asp-route-id="@Model.VendorId">Edit</a>
+<span class="mx-1">|</span>
+<a asp-controller="Vendor" asp-action="ProcessTempDelete" asp-route-id="@Model.VendorId">Delete</a>

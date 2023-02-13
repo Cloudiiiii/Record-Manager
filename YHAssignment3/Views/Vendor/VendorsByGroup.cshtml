@@ -1,0 +1,65 @@
+﻿@model AlphabeticalVendorGroupsModel
+
+@{
+
+
+    ViewData["Title"] = $"Vendors from \"{Model.ActiveGroupName}\"";
+    string baseCssClass = "";
+    string cssClass = "";
+}
+
+<a asp-controller="Vendor" asp-action="GetAddVendor" asp-route-lowerBound="@Model.ActiveGroupName.Substring(0, 1)" asp-route-upperBound="@Model.ActiveGroupName.Substring(2)">Add new vendor</a>
+<div class="row">
+    <div class="col-m-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vendor in Model.Vendors)
+                {
+                    <tr>
+                        <td>@vendor.Name</td>
+                        <td>@vendor.Address1</td>
+                        <td>
+                            <partial name="_VendorActionLinksPartial" model="@vendor" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-9">
+
+            @if (Model.ActiveGroupName == "A-E")
+            {
+                cssClass = baseCssClass + " active";
+            }
+            else
+            {
+                cssClass = baseCssClass;
+            }
+
+            @foreach (string group in Model.Groups)
+            {
+                @if (Model.ActiveGroupName == group)
+                {
+                    cssClass = baseCssClass + "btn btn-primary";
+                }
+                else
+                {
+                    cssClass = baseCssClass;
+                }
+
+                <a asp-controller="Vendor" asp-action="GetVendors" asp-route-lowerBound="@group.Substring(0, 1)" asp-route-upperBound="@group.Substring(2)" class=@cssClass>@group</a>
+                <span class="mx-2">|</span>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@model VendorViewModel
+
+@{
+    ViewData["Title"] = "Add Vendor";
+}
+
+<h1>Add a Vendor</h1>
+
+<form asp-controller="Vendor" asp-action="AddNewVendor" method="post" enctype="application/x-www-form-urlencoded">
+    <partial name="_AddEditPartial" model="@Model" />
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a asp-controller="Vendor" asp-action="GetVendors" asp-route-lowerBound="@Model.lastLowerBound" asp-route-upperBound="@Model.lastUpperBound" class="btn btn-primary">Cancel</a>
+</form>
